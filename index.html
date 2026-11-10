@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de CPK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Calculadora de Custo por Quilômetro</h1>
+    <p>Compare o custo por quilômetro (CPK) do pneu atual com o proposto e veja quanto a frota economiza por ano.</p>
+  </header>
+
+  <section class="card" aria-labelledby="t-frota">
+    <h2 id="t-frota">1. Dados da frota</h2>
+    <div class="row3">
+      <label>Veículos na frota<input id="veic" type="number" inputmode="numeric" min="1" value="10"></label>
+      <label>Pneus por veículo<input id="pneus" type="number" inputmode="numeric" min="1" value="6"></label>
+      <label>Km por veículo, por mês<input id="km" type="number" inputmode="numeric" min="1" value="10000"></label>
+    </div>
+    <details>
+      <summary>Considerar economia de combustível (opcional)</summary>
+      <div class="row2">
+        <label>Gasto mensal por veículo (R$)<input id="comb" type="number" inputmode="decimal" min="0" value="0"></label>
+        <label>Redução estimada (%)<input id="red" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="0"></label>
+      </div>
+    </details>
+  </section>
+
+  <h2 class="sec">2. Pneus a comparar</h2>
+  <div class="tires">
+    <section class="card tire a" aria-labelledby="t-a">
+      <h2 id="t-a">Pneu atual</h2>
+      <label>Fabricante<select id="mA"></select></label>
+      <label>Modelo<input id="moA" list="lA" type="text" placeholder="Escolha ou digite o modelo" autocomplete="off"></label>
+      <datalist id="lA"></datalist>
+      <div class="row2">
+        <label>Preço por pneu (R$)<input id="pA" type="number" inputmode="decimal" min="0" value="3300"></label>
+        <label>1° Vida útil (km)<input id="vA" type="number" inputmode="numeric" min="1" value="180000"></label>
+      </div>
+    </section>
+
+    <section class="card tire b" aria-labelledby="t-b">
+      <h2 id="t-b">Pneu proposto</h2>
+      <label>Fabricante<select id="mB"></select></label>
+      <label>Modelo<input id="moB" list="lB" type="text" placeholder="Escolha ou digite o modelo" autocomplete="off"></label>
+      <datalist id="lB"></datalist>
+      <div class="row2">
+        <label>Preço por pneu (R$)<input id="pB" type="number" inputmode="decimal" min="0" value="1900"></label>
+        <label>1° Vida útil (km)<input id="vB" type="number" inputmode="numeric" min="1" value="150000"></label>
+      </div>
+    </section>
+  </div>
+  <p class="hint">Os valores iniciais são exemplos. Preço e vida útil variam por região e operação: preencha com os dados do cliente.</p>
+
+  <section class="card result" id="res" aria-live="polite" aria-labelledby="t-res">
+    <h2 id="t-res">3. Resultado</h2>
+    <p id="msg" class="hint" hidden>Preencha quantidades e vida útil com valores maiores que zero.</p>
+    <div id="out">
+      <div class="res-top">
+        <div>
+          <div id="big" class="big">R$ 0</div>
+          <p class="sub" id="sub">de economia por ano</p>
+        </div>
+        <div class="bars">
+          <div>
+            <div class="bar-label"><span id="nA">Pneu atual</span><span id="cA"></span></div>
+            <div class="track"><div class="fill" id="fA" style="background:var(--bar-a)"></div></div>
+          </div>
+          <div>
+            <div class="bar-label"><span id="nB">Pneu proposto</span><span id="cB"></span></div>
+            <div class="track"><div class="fill" id="fB" style="background:var(--bar-b)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b id="kA"></b><span>CPK atual (R$/km por pneu)</span></div>
+        <div class="stat"><b id="kB"></b><span>CPK proposto (R$/km por pneu)</span></div>
+        <div class="stat"><b id="pct"></b><span>redução no custo com pneus</span></div>
+        <div class="stat"><b id="troca"></b><span>pneus a menos comprados por ano</span></div>
+      </div>
+
+      <div class="mil" id="mil">
+        <h3>Custo a cada 1.000 km</h3>
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">Atual</th><th scope="col">Proposto</th><th scope="col">Economia</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" id="lb1">Por pneu</th><td id="ma1"></td><td id="mb1"></td><td id="md1"></td></tr>
+            <tr><th scope="row" id="lb2">Por veículo</th><td id="ma2"></td><td id="mb2"></td><td id="md2"></td></tr>
+            <tr><th scope="row" id="lb3">Frota inteira</th><td id="ma3"></td><td id="mb3"></td><td id="md3"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <a class="btn" id="zap" href="#" target="_blank" rel="noopener">Pedir proposta por WhatsApp</a>
+        <button class="btn alt" id="copy" type="button">Copiar resumo</button>
+      </div>
+    </div>
+    <p class="note">Estimativa baseada nos dados informados. A vida útil real varia com rota, carga, calibragem e manutenção.</p>
+  </section>
+
+<footer class="rodape">
+  <h2 class="sec">Casos reais em campo</h2>
+  <div class="carrossel" id="carrossel" role="region" aria-roledescription="carrossel" aria-label="Casos reais de desempenho de pneus">
+    <div class="slides">
+      <figure class="slide ativo"><img src="img/caso1.jpg" alt="Caso Pneu 295/80R22.5" width="1440" height="810"></figure>
+      <figure class="slide"><img src="img/caso1.jpg" alt="Pneu 295/80R22.5" width="1440" height="810" loading="lazy"></figure>
+      <figure class="slide"><img src="img/caso1.jpg" alt="Projeção Pneu 295/80R22.5" width="1440" height="810" loading="lazy"></figure>
+    </div>
+    <button class="nav prev" type="button" aria-label="Imagem anterior">‹</button>
+    <button class="nav next" type="button" aria-label="Próxima imagem">›</button>
+    <div class="dots"></div>
+  </div>
+</footer>
+</div>
+
+<script src="catalogo.js"></script>
+<script src="script.js"></script>
+<script src="carrossel.js"></script>
+</body>
+</html>

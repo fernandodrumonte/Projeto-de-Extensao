@@ -1,0 +1,113 @@
+:root{
+  /* Cores da marca: roxo #4E018F e laranja #FF6634 */
+  --bg:#f1eef6;--surface:#ffffff;--ink:#1c1230;--muted:#62586f;--line:#d9d2e4;
+  --accent:#4e018f;--accent-ink:#ffffff;--brand2:#ff6634;
+  --gain:#FF6634;--bar-a:#8a8396;--bar-b:#FF6634;--field:#f7f5fa;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#130d1c;--surface:#1e1629;--ink:#f1ecf8;--muted:#b3a6c4;--line:#352940;
+    --accent:#b27df2;--accent-ink:#14001f;--brand2:#ff7a4d;
+    --gain:#FF6634;--bar-a:#b27df2;--bar-b:#FF6634;--field:#160f20;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#130d1c;--surface:#1e1629;--ink:#f1ecf8;--muted:#b3a6c4;--line:#352940;
+  --accent:#b27df2;--accent-ink:#14001f;--brand2:#ff7a4d;
+  --gain:#FF6634;--bar-a:#b27df2;--bar-b:#FF6634;--field:#160f20;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}.wrap{max-width:1000px;margin:0 auto;padding:20px 16px 40px}
+body{
+  margin:0;
+  color:var(--ink);
+  font:400 16px/1.5 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(rgba(16,20,26,.55), rgba(16,20,26,.55)),
+    url("img/Capa1.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+header{padding:12px 0 20px;border-bottom:4px solid var(--brand2);margin-bottom:22px}
+h1{margin:0;font:700 clamp(28px,5vw,42px)/1.05 "Barlow Condensed","Barlow",system-ui,sans-serif}
+header p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+h2{margin:0 0 12px;font:600 22px/1.1 "Barlow Condensed","Barlow",system-ui,sans-serif}
+h2.sec{margin:24px 0 12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.tires{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:700px){.tires{grid-template-columns:1fr 1fr}}
+.tire.a{border-top:5px solid var(--bar-a)}
+.tire.b{border-top:5px solid var(--bar-b)}
+.tire label{margin-bottom:12px}
+.row2,.row3{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.row3{grid-template-columns:1fr}
+@media(min-width:600px){.row3{grid-template-columns:repeat(3,1fr)}}
+label{display:block;font-size:14px;color:var(--muted)}
+input,select{width:100%;margin-top:4px;padding:10px 11px;font:500 16px "Barlow",system-ui,sans-serif;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:6px}
+input:focus-visible,select:focus-visible,summary:focus-visible,button:focus-visible,a.btn:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+details{margin-top:14px}
+summary{cursor:pointer;font-weight:600;padding:4px 0}
+details .row2{margin-top:10px}
+.hint{font-size:13px;color:var(--muted);margin:10px 0 0}
+.result{margin-top:18px}
+.res-top{display:grid;gap:18px;grid-template-columns:1fr;align-items:center;margin-bottom:18px}
+@media(min-width:700px){.res-top{grid-template-columns:1fr 1.2fr}}
+.big{font:700 clamp(44px,9vw,68px)/1 "Barlow Condensed","Barlow",system-ui,sans-serif;color:var(--gain);margin:2px 0 4px;word-break:break-word}
+.neg .big{color:#c0392b}
+.sub{margin:0;color:var(--muted)}
+.bars{display:grid;gap:12px}
+.bar-label{display:flex;justify-content:space-between;gap:8px;font-size:14px;margin-bottom:4px}
+.bar-label span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.track{height:22px;background:var(--field);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.fill{height:100%;transition:width .35s ease}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+@media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.stat b{display:block;font:700 24px/1.1 "Barlow Condensed","Barlow",system-ui,sans-serif}
+.stat span{font-size:13px;color:var(--muted)}
+.actions{display:grid;gap:8px;grid-template-columns:1fr}
+@media(min-width:700px){.actions{grid-template-columns:2fr 1fr}}
+.btn{display:block;width:100%;text-align:center;padding:13px 16px;border-radius:7px;border:0;background:var(--accent);color:var(--accent-ink);font:600 17px "Barlow",system-ui,sans-serif;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.note{font-size:13px;color:var(--muted);margin:16px 0 0}
+@media(prefers-reduced-motion:reduce){.fill{transition:none}}
+
+/* ----- Carrossel de casos ----- */
+.rodape{margin-top:28px}
+.carrossel{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#fff;aspect-ratio:16/9}
+.slides,.slide{position:absolute;inset:0;margin:0}
+.slide{opacity:0;transition:opacity .6s ease;pointer-events:none}
+.slide.ativo{opacity:1;pointer-events:auto}
+.slide img{width:100%;height:100%;object-fit:contain;display:block}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.nav.prev{left:10px}
+.nav.next{right:10px}
+.nav:hover{background:rgba(0,0,0,.75)}
+.dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:8px}
+.dots button{width:10px;height:10px;padding:0;border:1px solid rgba(0,0,0,.35);border-radius:50%;background:rgba(255,255,255,.85);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--accent);transform:scale(1.25)}
+.nav:focus-visible,.dots button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.slide{transition:none}}
+
+/* ----- Custo a cada 1.000 km ----- */
+.mil{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:18px;overflow-x:auto}
+.mil h3{margin:0 0 8px;font:600 20px/1.1 "Barlow Condensed","Barlow",system-ui,sans-serif}
+.mil table{width:100%;border-collapse:collapse;font-size:15px}
+.mil th,.mil td{padding:8px 6px;text-align:right;border-top:1px solid var(--line);white-space:nowrap}
+.mil thead th{border-top:0;font-size:13px;font-weight:500;color:var(--muted)}
+.mil tbody th{text-align:left;font-weight:500;color:var(--muted);white-space:normal}
+.mil td{font-weight:600}
+.mil td.gain{color:var(--gain)}
+.mil td.loss{color:#c0392b}
+
+header h1{color:#fff}
+header p{color:#d9deea}
+h2.sec{color:#fff}
+.hint{color:#d9deea}
