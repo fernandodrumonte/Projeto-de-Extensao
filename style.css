@@ -5,6 +5,7 @@
   --gain:#FF6634;--bar-a:#8a8396;--bar-b:#FF6634;--field:#f7f5fa;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
+
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#130d1c;--surface:#1e1629;--ink:#f1ecf8;--muted:#b3a6c4;--line:#352940;
@@ -29,7 +30,7 @@ body{
   background-color:var(--bg);
   background-image:
     linear-gradient(rgba(16,20,26,.55), rgba(16,20,26,.55)),
-    url("img/Capa1.png");
+    url("img/Capa.png");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;

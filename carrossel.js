@@ -21,6 +21,7 @@
     Array.prototype.forEach.call(dots.children,function(d,k){
       if(k===i)d.setAttribute("aria-current","true");else d.removeAttribute("aria-current");
     });
+    
   }
   function parar(){clearInterval(timer)}
   function auto(){

@@ -7,6 +7,7 @@
   var brl2=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:2,maximumFractionDigits:2});
   var ids=["veic","pneus","km","pA","vA","pB","vB","comb","red","moA","moB"];
   var summary="";
+  
 
   function v(id){var n=parseFloat($(id).value);return isNaN(n)?0:n}
 

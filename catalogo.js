@@ -19,4 +19,5 @@ window.CATALOGO = {
   "Xbri": [],
   "Neupar": [],
   "Durable": [],
+  
 };
