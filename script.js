@@ -20,6 +20,7 @@
     html+='<option value="__outra">Outra marca</option>';
     sel.innerHTML=html;
   }
+  
   function fillModels(side){
     var marca=$("m"+side).value, lista=catalogo[marca]||[];
     $("l"+side).innerHTML=lista.map(function(m){return '<option value="'+esc(m)+'">'}).join("");

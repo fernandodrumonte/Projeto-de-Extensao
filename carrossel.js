@@ -22,6 +22,7 @@
       if(k===i)d.setAttribute("aria-current","true");else d.removeAttribute("aria-current");
     });
     
+    
   }
   function parar(){clearInterval(timer)}
   function auto(){
