@@ -48,7 +48,7 @@ Os resultados são estimativas baseadas nos dados informados. A vida útil real 
 
 💻 Rodando localmente
 bash
-git clone https://github.com/fernandodrumonte/Projeto-de-Extens-o.git
+git clone https://github.com/fernandodrumonte/Projeto-de-Extensao.git
 cd Projetos
 # Abra o index.html no navegador, ou use um servidor local:
 npx serve .
